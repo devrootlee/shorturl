@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.laundrygo.shorturl.repository.UrlRepository">
+    <select id="findByOriUrl" resultType="com.laundrygo.shorturl.domain.Url">
+        SELECT *
+        FROM Url
+        WHERE 1=1
+            AND ori_url = #{oriUrl}
+    </select>
+
+    <select id="findByShortUrl" resultType="com.laundrygo.shorturl.domain.Url">
+        SELECT *
+        FROM Url
+        WHERE 1=1
+            AND short_url = #{shortUrl}
+    </select>
+
+    <select id="findAll" resultType="com.laundrygo.shorturl.domain.Url">
+        SELECT *
+        FROM Url
+    </select>
+
+    <insert id="insert">
+        INSERT INTO Url(ori_url, short_url)
+        VALUES (#{oriUrl}, #{shortUrl})
+    </insert>
+
+    <update id="updateRequestCount">
+        UPDATE Url
+        SET request_count = request_count + 1
+        WHERE 1=1
+            AND short_url = #{shortUrl}
+    </update>
+</mapper>

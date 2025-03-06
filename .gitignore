@@ -48,3 +48,12 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Dependency Caches
+**/.gradle/**
+**/build/**
+**/.idea/**
+
+# IntelliJ IDEA
+*.iml
+.idea/
+out/
